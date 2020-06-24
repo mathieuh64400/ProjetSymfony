@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block title %}Vos produits
+{% endblock %}
+{% form_theme formcategory'bootstrap_4_layout.html.twig' %}
+{% block body %}
+
+	{% include "template_parts/_nav2.html.twig" %}
+	<div class="example-wrapper">
+		<h1 class="text-center">Inserez les nouvelles categories</h1>
+		<br>
+		<br>
+		<h1 class="text-center">
+			Organisation des categories</h1>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row"style="margin-left:5%;">
+			<div class="jumbotron" style="width:45%; height:50%;">
+				<br>
+				<div class="form-group">
+					{{form_start(formcategory)}}
+					<div class="row">
+						
+						{{form_row(formcategory.titre,{'attr':{placeholder:'choissisez le nom du produit'}})}}
+					
+						{{form_row(formcategory.description,{'attr':{placeholder:'entrez votre description de la category'}})}}
+						</div>
+
+
+					<button type="submit" class="btn btn-warning">Ajouter les éléments</button>
+
+					{{form_end(formcategory)}}
+				</div>
+			</div>
+			<div>
+				<img class=" container rounded float-left " class="img-fluid ml-1" style="height: 57%; width: 40em; display: block;" src="{{asset ('assets/images/canne.jpg')}}">
+			</div>
+		</div>
+
+	</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block title %}Vos produits
+{% endblock %}
+{% form_theme formchoixtypecommande'bootstrap_4_layout.html.twig' %}
+{% block body %}
+
+	{% include "template_parts/_nav2.html.twig" %}
+	<div class="example-wrapper">
+		<h1 class="text-center">Choississez la nature de votre commande</h1>
+		<br>
+		<br>
+		
+	</div>
+    <div style="margin-left:10%;"> Si vous ne souhaitez Aucun detail, ecrivez:<strong>NULL</strong></div>
+	<div class="container-fluid">
+		<div class="row"style="margin-left:5%;">
+			<div class="jumbotron" style="width:45%; height:50%;">
+				<br>
+				<div class="form-group">
+					{{form_start(formchoixtypecommande)}}
+					
+					<div class="row">
+						{{form_row(formchoixtypecommande.detail,{'attr':{placeholder:'detaillez si vous souhaitez une carte speciale ou un petit mot ci-dessous'}})}}
+						 {{form_row(formchoixtypecommande.natureCommande)}}  {{form_row(formchoixtypecommande.nature)}}</div> 
+                   
+					<button type="submit" class="btn btn-warning">Valider le type de commande</button>
+
+					{{form_end(formchoixtypecommande)}}
+				</div>
+			</div>
+			<div>
+				<img class=" container rounded float-left " class="img-fluid ml-1" style="height: 80%; width: 40em; display: block;" src="{{asset ('assets/images/canne.jpg')}}">
+			</div>
+		</div>
+
+	</div>
+{% endblock %}

@@ -4,6 +4,8 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    app.encryptkey: '3140040021d937570d0e9227b0caa34d5f5c23668eca84b8b4a22730629db22e50efddf9d6d0ff185a5f54651499fa385cdd88af90560d81e4274e5a5dab5bdfb96985d00f91cbed7410371fba9eb632de9cee7fcd182630a2b2dddf2986786c7eafdfeb'
+    app.locales: [en, fr]
 
 services:
     # default configuration for services in *this* file
@@ -25,3 +27,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\EventListener\DoctrineListener:
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate  }
+            - { name: doctrine.event_listener, event: postLoad   }

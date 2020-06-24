@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des utilisateurs{% endblock %}
+
+{% block body %}
+    <h1 style="text-Align:center;">Liste des utilisateurs</h1>
+    <div style="text-Align:center;"> Traitement 0 =>  Traite <br> Traitement 1 => En cours de Traitement <br> Traitement 2=>Non Traité
+    <table class="table table-hover">
+        <thead class="table-primary">
+            <th>ID</th>
+            <th>Date</th>
+             <th>Nom</th>
+            <th>Coordonnées</th>
+            <th>Sujet</th>
+            <th>Message</th>
+            <th>traitement</th>
+             <th>Action</th> 
+        </thead>
+        <tbody>
+            {# On boucle sur les utilisateurs #}
+            {% for contact in contact %}
+                
+                <tr>
+                    <td>{{ contact.id }}</td>
+                    <td>{{ contact.Date|date('Y-m-d')}}</td>
+                    <td>{{ contact.Nom }}</td>
+                    <td> Email:{{ contact.email }} <br> Telephone:{{contact.telephone}}</td>
+                    <td>
+                       {{contact.Sujet}} 
+                    </td>
+                    <td>{{ contact.Message}}</td>
+                     <td>{{ contact.status}}</td>
+                    
+                    <td><a href="{{ path('contact_status', {'id': contact.id}) }}">Modifier le status</a></td> 
+                </tr>
+                
+           
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

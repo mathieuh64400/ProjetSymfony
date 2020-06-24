@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block title %}Accueil
+{% endblock %}
+{% form_theme formcontact'bootstrap_4_layout.html.twig' %}
+{% block body %}
+
+	{% include "template_parts/_nav2.html.twig" %}
+
+	<div class="container-fluid">
+		<div class="jumbotron container-fluid">
+			<h1 class="display-3" style="text-align:center">Contactez-nous!</h1>
+			<p class="lead" style="text-align:center">une modification d'adresse, un colis en retard!</p>
+			<p class="lead" style="text-align:center">Nous sommes à votre disposition pour
+				<br>Régler ce probléme avec un minimun de temps</p>
+			<hr class="my-4">
+
+			<div class="form-group ">
+			
+				{{form_start(formcontact)}}
+				<div class="row" style="margin-left:0.25%;">
+					{{form_row(formcontact.Nom,{'attr':{placeholder:'entrez votre nom'}})}}
+					{{form_row(formcontact.email,{'attr':{placeholder:'entrez votre mail'}})}}
+					{{form_row(formcontact.telephone,{'attr':{placeholder:'entrez votre telephone'}})}}
+                    {{form_row(formcontact.date,{'attr':{placeholder:'entrez votre telephone'}})}}
+				</div>
+				
+					
+					{{form_row(formcontact.sujet,{'attr':{placeholder:'entrez votre sujet'}})}}
+				
+				{{form_row(formcontact.message,{'attr':{placeholder:'entrez votre message'}})}}
+				<button type="submit" class="btn btn-warning">Envoyer</button>
+
+				{{form_end(formcontact)}}
+			</div>
+
+
+		</div>
+	</div>
+{% endblock %}

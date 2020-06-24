@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonce
+{% endblock %}
+
+{% block body %}
+	
+
+	
+	<div style="overflow-x: hidden;">
+
+		{% include "template_parts/_nav2.html.twig" %}
+		<div class="example-wrapper mb-2">
+			<h1 class="text-center">Commentaire n°{{annonce.id}}</h1><br><br>
+		</div>
+
+		<div class="row">
+			<div style="margin-bottom:2%; margin-left:10%">
+				<div class="card border-primary mb-3" style="max-width: 25rem;">
+
+					<div class="card-body">
+						<h4 class="card-title">{{annonce.titre}}
+							<br>
+							Posté par
+							{{annonce.nom}}  <br>le {{annonce.date|date('Y-m-d')}}</h4>
+						<p class="card-text">{{annonce.contenu}}</p>
+						<div>
+							<a href="{{ path('annonce_index') }}">
+								<button
+									type="button" class="btn btn-warning">
+									{# <img style="height: 100%; width:100%;margin-left:5%; display: block;" src="{{asset('assets/images/eye 7.png')}}"> #}
+									retour aux annonces
+								</button>
+							</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div style="margin-left:2%">
+				<img class=" container rounded float-left " class="img-fluid ml-1" style="height: 96%; width: 45em; display: block;" src="{{asset ('assets/images/canne.jpg')}}">
+			</div>
+		</div>
+
+
+		
+
+
+	{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+{% block title %}Page profil de{{ app.user.username }}
+
+
+{% endblock %}
+
+{% block body %}
+	{% include "template_parts/_nav2.html.twig" %}
+
+
+	<div class="container">
+		<div class="jumbotron">
+			<div class="col-9 mb-3">
+				<div class="alert alert-dismissible alert-info">
+
+					<strong>Annonce</strong>
+					cette
+					<a href="#" class="alert-link">Alert requière votre attention</a>, C'est important!!!.
+				</div>
+				<div>
+
+					<h2>
+						<strong>
+							Le covid-19
+						</strong>
+					</h2>
+					<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="jumbotron">
+			<h1 class="display-4 text-center">Mon Profil</h1>
+			<p class="lead">Dans cette partie, vous pouvez obtenir des renseignements précis sur vos achats en selectionnant un des quatre chapitres suivant:</p>
+			<hr
+			class="my-4">
+
+			{# <div class="mb-4">
+									<a href="{{path('info_personnelle')}}">
+										<button type="button" class="btn btn-primary btn-lg btn-block">
+											Informations Personnelles</button>
+									</a>
+								</div> #}
+			<div class="mb-4">
+				{% if is_granted('ROLE_ADMIN') %}
+				<div class="mb-4">	<a href="{{path('utilisateurs')}}">
+						<button type="button" class="btn btn-primary btn-lg btn-block">
+							 console d'administratrion des utilisateurs</button>
+					</a></div>
+                <div class="mb-4">
+					<a href="{{path('adresse_index')}}">
+						<button type="button" class="btn btn-primary btn-lg btn-block">
+							Voir Adresse Client</button></div>
+					</a>
+				{% elseif is_granted('ROLE_USER') %}
+					<a href="{{path('adresse_new')}}">
+						<button type="button" class="btn btn-primary btn-lg btn-block">
+							Adresse</button>
+					</a>
+				{% endif %}
+
+			</div>
+			<div class="mb-4">
+				<a href="{{path('paiements')}}">
+					<button type="button" class="btn btn-primary btn-lg btn-block">
+						Historique des payements</button>
+				</a>
+			</div>
+			<div class=" mb-4">
+				<a href="{{path('historiqueCommandes')}}">
+					<button type="button" class="btn btn-primary btn-lg btn-block">Historique des commandes</button>
+				</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

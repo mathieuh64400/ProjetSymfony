@@ -1,0 +1,36 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+	<div style="overflow-x: hidden;">
+
+
+		<div class="jumbotron " style="width:66%; margin-left:10%;">
+			<div class="row">
+				<div class="form-group ">
+					<div>
+						Ajout d'une annonce</div>
+					<hr>
+					{{form_start(form)}}
+
+					{{form_row(form.titre,{'attr':{placeholder:'entrez le titre de l annonce'}})}}
+					{{form_row(form.nom,{'attr':{placeholder:'entrez votre Nom'}})}}
+					{{form_row(form.Contenu,{'attr':{placeholder:'entrez le contenu de l annonce'}})}}
+					{{form_row(form.date,{'attr':{placeholder:'entrez le contenu de l annonce'}})}}
+					<div class="row">
+						<button type="submit" class="btn btn-warning">Creer l'annonce</button>
+						<button type="submit" class="btn btn-warning">Mettre à jour</button>
+						<div style="margin-bottom:2%;">
+							<a href="{{path('annonce_index')}}">
+								<button type="button" class="btn btn-warning">observer</button>
+							</a>
+						</div>
+					</div>
+				</div>
+				{{form_end(form)}}
+				<div>
+					<img class=" container rounded float-left " class="img-fluid ml-1" style="height: 32em; width:25em; margin-left:50%; display: block;" src="{{asset ('assets/images/canne.jpg')}}">
+				</div>
+			</div>
+		</div>
+
+	</div>
+{% endblock %}

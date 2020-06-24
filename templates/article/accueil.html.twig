@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+{% block title %}Accueil
+{% endblock %}
+
+{% block body %}
+
+	{% include "template_parts/_nav2.html.twig" %}
+
+
+	<div class="example-wrapper">
+		<h1 class="text-center">Nos produits</h1>
+
+		<br>
+		<br>
+		<h2 class="text-center">
+			{% trans %}
+			Nos Rhums d'Exceptions & Notre gamme de sucre
+			{% endtrans %}
+		</h2>
+		<br>
+		<br>
+
+		<div class="container-fluid">
+			<div class="row">
+				{% for article in articles %}
+					<div class="card text-white bg-primary mb-3" style="max-width: 15rem; margin-left:11%">
+						<div class="card-header">{{article.type}}
+							lot:
+							{{article.category.titre}}
+							<br>
+							Ecoscore:{{article.ecoscore.valeur}}</div>
+						<div class="card-body" style="background-color:white; color=black;">
+							<h4 class="card-title" style="color:black;">{{article.titre}}({{article.volume}})</h4>
+							<img style="height: 40%; width: 40%;margin-left:25%; display: block;" src="{{article.image}}" alt="Card image">
+							<p class="card-text" style="color:black;">{{article.description}}</p>
+						</div>
+						<ul class="list-group list-group-flush" style="background-color:white; color=black;">
+							<li>
+								<div class="card-body mx-auto">
+									<p class="card-text" style="color:black;">{{article.prix}}euros</p>
+								</div>
+							</li>
+						</ul>
+						<div class="card-footer text-muted">
+							<div class="mx-auto mb-3">
+								<a href="{{path ('addPanier',{'id':article.id})}}">
+									<button type="button" class="btn btn-warning">
+										Ajouter a votre panier</button>
+								</a>
+								<a href="{{path ('paccueil_show',{'id':article.id})}}">
+									<button type="button" class="btn btn-secondary">detail</button>
+								</a>
+								{# {% if is_granted('ROLE_ADMIN') %}
+									<a class="nav-link" href="{{path('article_modif', {'id': article.id})}}"><button type="button" class="btn btn-secondary">Produit</button></a>
+									{% elseif is_granted('ROLE_USER') %}
+
+								{% endif %} #}
+							</div>
+						</div>
+					</div>
+
+
+				{% endfor %}
+			</div>
+			<div style="margin-left:33%">
+				{{ knp_pagination_render(articles) }}
+			</div>
+
+		</div>
+
+	</div>
+{% endblock %}

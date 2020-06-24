@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des utilisateurs
+{% endblock %}
+
+{% block body %}
+	<div style="overflow-x: hidden;">
+		<h1 style="text-Align:center;">Liste des Paiements/commandes</h1>
+		<div class="row">
+			<div style="width:25%; margin-left:2%;">
+				<h2>
+					References:</h2>
+				<table class="table table-hover">
+					<thead class="table-warning">
+						<th>Non Traité</th>
+						{# <th>Date</th> #}
+						<th>En cours de traitement</th>
+						<th>En transit</th>
+						<th>Remis</th>
+					</thead>
+					{# <tbody>
+						<tr>
+							<td>3</td>
+							<td>2</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+					</tbody> #}
+				</table>
+			</div>
+			<h2 id="heure" style="margin-left:50%;">
+				Heure Actuelle
+			</h2>
+		</div>
+		<table class="table table-hover">
+			<thead class="table-primary">
+				<th>ID</th>
+				{# <th>Date</th> #}
+				<th>Nom</th>
+				<th>Numero cb</th>
+				<th>status Commande</th>
+				<th>Action</th>
+			</thead>
+			<tbody>
+				{# On boucle sur les utilisateurs #}
+				{% for listecommande in listecommande %}
+
+					<tr>
+						<td>{{ listecommande.id }}</td>
+						{# <td>{{ listecommande.Date|date('Y-m-d')}}</td>  #}
+						<td>{{ listecommande.Nom}}</td>
+						<td>
+							 {{listecommande.numeroCB}} 
+						</td>
+
+						<td>{{listecommande.etat}}</td>
+
+						<td>
+							<a href="{{ path('verifcommande', {'id': listecommande.id}) }}">Modifier
+							</a>
+						</td>
+					</tr>
+
+
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}

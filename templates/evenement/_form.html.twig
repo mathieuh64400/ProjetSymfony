@@ -1,0 +1,27 @@
+{% form_theme formevenements'bootstrap_4_layout.html.twig' %}
+<div class="container-fluid">
+		<div class="row"style="margin-left:5%;">
+			<div class="jumbotron" style="width:45%; height:50%;">
+				<br>
+				<div class="form-group">
+					{{form_start(formevenements)}}
+					<div class="row">
+						{{form_row(formevenements.Nom,{'attr':{placeholder:'choissisez le nom de l Actualité'}})}}
+                        {{form_row(formevenements.nature)}}
+					</div>
+
+					<div class="row">
+						{{form_row(formevenements.date,{'attr':{placeholder:'entrez votre date'}})}}
+						{{form_row(formevenements.Image,{'attr':{placeholder:'entrez votre src'}})}}</div>
+					<div class="row">
+						{{form_row(formevenements.Contenu,{'attr':{placeholder:'entrez votre description de l article'}})}}</div>
+						
+                   
+                  
+					<button type="submit" class="btn btn-warning btn-lg btn-block"> Mettre les Actualités dans le site</button>
+
+					{{form_end(formevenements)}}
+				</div>
+			</div>
+        </div>
+</div>

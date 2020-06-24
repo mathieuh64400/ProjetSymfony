@@ -1,0 +1,40 @@
+{# {% extends 'base.html.twig' %} #}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+	<div style="overflow-y: hidden;">
+		<div style=" background-image: linear-gradient(-90deg, red, yellow);
+											  width: 75%;
+											  border: 5e solid black;
+											  padding: 2em;
+											  margin: 10%;
+								              margin-top:5%;
+				                              margin-bottom:0%;">
+			  
+				<h1 style="text-Align:center;">Bienvenu chez RhumaSug</h1>
+
+				<p style="text-Align:center;">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					<br>
+					consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<img src="{{asset ('assets/images/arriere.jpg')}}" class="img-responsive" style="margin-left:40%;" alt="logo" width="33%;" height="33%;">
+				<div style="text-Align:center;">Sed ut perspiciatis unde omnis iste natus error
+					<br>
+					sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+					<br>eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur<br>
+					aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem
+					<br>ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatu</div>
+
+				<a href="{{ path('paccueil') }}">
+					<button style="background: blue; border: none; color: white; padding: 15px 32px;text-align: center; text-decoration: none;display: inline-block;font-size: 16px;margin-left:45%; margin-top:0%; margin-bottom:10%;">
+						Continuer
+					</button>
+				</a>
+				<div style="text-Align:center">
+					L'abus d'alcool est dangereux pour la santé! A consommer avec Modération.
+				</div>
+			</div>
+		</div>
+		
+
+	{% endblock %}

@@ -1,0 +1,38 @@
+body{ color:black;}
+table{
+    border-collapse:collapse;
+}
+th{ background-color: #29ec18;
+    color: white;
+    text-align: center;
+}
+td{
+    color: rgb(0, 0, 0);
+}
+table, th, td {
+    border: 1px solid black;
+  }
+  input[type=text] {
+    width: 33%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    color:black;
+    margin-left:2%;
+  }
+button{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin-left:5%;
+}
+a{
+    margin-left: 0%;
+}
+h1{
+    font-size: large;
+    color:black;
+
+}

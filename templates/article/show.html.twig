@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+{% block title %}Page de detail
+{% endblock %}
+
+{% block body %}
+
+	{% include "template_parts/_nav2.html.twig" %}
+
+
+	<div class="example-wrapper">
+		
+			<h1 class="text-center">Détail sur le
+				{{article.titre}}
+
+				
+			
+		</h1>
+		<br><br>
+		<div class="container-fluid">
+			<div class="row mb-3">
+				<div style="margin-left:0%;">
+					<img style="height: 75%; width: 50%;margin-left:50%; display: block;" src="{{asset (article.image)}}" alt="Card image">
+				</div>
+				<div style="margin-left:20%;">
+					<h2 style="color:black;">
+						Issu d’un savoir-faire local</h2>
+					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+						<br>accusantium doloremque laudantium,
+						<br>totam rem aperiam, eaque ipsa
+						<br>quae ab illo inventore veritatis et
+						<br>quasi architecto beatae vitae dicta<br>
+						sunt explicabo. Nemo enim ipsam voluptatem
+						<br>quia voluptas sit aspernatur aut
+						<br>odit aut fugit, sed quia consequuntur.</p>
+				</div>
+			</div>
+			<div class="row" style=" margin-left:10%; margin_bottom:5%;">
+				<div>
+					<h2 style="color:black;">
+						Origine Française:</h2>
+					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+						<br>accusantium doloremque laudantium,
+						<br>totam rem aperiam, eaque ipsa
+						<br>quae ab illo inventore veritatis et
+						<br>quasi architecto beatae vitae dicta<br>
+						sunt explicabo. Nemo enim ipsam voluptatem
+						<br>quia voluptas sit aspernatur aut
+						<br>odit aut fugit, sed quia consequuntur.</p>
+				</div>
+				<div style=" margin-left:22%;">
+					<h2 style="color:black;">
+						Respectant l’environnement</h2>
+					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+						<br>accusantium doloremque laudantium,
+						<br>totam rem aperiam, eaque ipsa
+						<br>quae ab illo inventore veritatis et
+						<br>quasi architecto beatae vitae dicta<br>
+						sunt explicabo. Nemo enim ipsam voluptatem
+						<br>quia voluptas sit aspernatur aut
+						<br>odit aut fugit, sed quia consequuntur.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

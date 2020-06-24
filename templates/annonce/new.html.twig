@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Creation de l' Annonce
+{% endblock %}
+
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+	<div style="overflow-x: hidden;">
+		{% include "template_parts/_nav2.html.twig" %}
+		<div class="example-wrapper mb-2">
+			<h1 class="text-center">Gestion d'une annonce
+			</h1><br>
+		</div>
+		<div class="row">
+			<div class="jumbotron " style="width:33%; margin-left:15%;">
+				<div class="form-group ">
+					<div>
+						Creation d'une annonce</div>
+					<hr>
+					{{form_start(form)}}
+
+					{{form_row(form.titre,{'attr':{placeholder:'entrez le titre de l annonce'}})}}
+					{{form_row(form.nom,{'attr':{placeholder:'entrez votre Nom'}})}}
+					{{form_row(form.Contenu,{'attr':{placeholder:'entrez le contenu de l annonce'}})}}
+					{{form_row(form.date,{'attr':{placeholder:'entrez le contenu de l annonce'}})}}
+					<div class="row">
+						<button type="submit" class="btn btn-warning">Creer l'annonce</button>
+						<button type="submit" class="btn btn-warning">Mettre à jour</button>
+						<div>
+							<a href="{{path('annonce_index')}}">
+								<button type="button" class="btn btn-warning">observer</button>
+							</a>
+						</div>
+						{# {{ include('annonce/_delete_form.html.twig') }} #}
+					</div>
+					{{form_end(form)}}
+				</div>
+			</div>
+			<div>
+				<img class=" container rounded float-left " class="img-fluid ml-1" style="height: 32em; width:30em; display: block;" src="{{asset ('assets/images/canne.jpg')}}">
+			</div>
+		</div>
+	</div>
+{% endblock %}
+

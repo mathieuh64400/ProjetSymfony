@@ -1,0 +1,24 @@
+{% form_theme formadresse 'bootstrap_4_layout.html.twig' %}
+
+<div class="form-group ">
+	{{form_start(formadresse)}}
+
+	{# {{form_row(formadresse.Nom,{'attr':{placeholder:'entrez votre nom'}})}} #}
+	{# {{form_row(formadresse.Prenom,{'attr':{placeholder:'entrez votre prenom'}})}} #}
+    <div class="row">
+    {{form_row(formadresse.user)}}</div>
+	{{form_row(formadresse.Pays,{'attr':{placeholder:'entrez votre Pays'}})}}
+	{{form_row(formadresse.typeAdresse,{'attr':{placeholder:'choissisez'}})}}
+	{{form_row(formadresse.Adresse,{'attr':{placeholder:'entrez votre adresse'}})}}
+	{# {{form_row(formadresse.type_adresse2,{'attr':{placeholder:'choissisez'}})}} #}
+	{{form_row(formadresse.codePostal,{'attr':{placeholder:'entrez votre Code Postal'}})}}
+	{{form_row(formadresse.Ville,{'attr':{placeholder:'entrez votre Ville de Facturation'}})}}
+
+	<div class="custom-control custom-checkbox">
+		<input type="checkbox" class="custom-control-input" id="customCheck2">
+		<label class="custom-control-label" for="customCheck2">j’accepte ces conditions</label>
+	</div>
+	<button type="submit" class="btn btn-warning">Valider Ces informations</button>
+	<button type="submit" class="btn btn-warning">Mettre à jour Ces informations</button>
+	{{form_end(formadresse)}}
+</div>

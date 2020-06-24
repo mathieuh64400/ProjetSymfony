@@ -1,0 +1,97 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+{% form_theme registrationForm'bootstrap_4_layout.html.twig' %}
+{% block body %}
+	{% include "template_parts/_nav2.html.twig" %}
+	<div style="overflow-x:hidden;">
+		<h1 class="ml-5"> {% trans %} Enregistrer vous chez nous {% endtrans %}</h1>
+
+		<div class="container-fluid " style="margin-left:10%;">
+			<div class="row">
+				<div class="jumbotron  row  col-md-offset-3" style="margin-left:0%;">
+
+					{{ form_start(registrationForm) }}
+					{{ form_row(registrationForm.email) }}
+					{{ form_row(registrationForm.password) }}
+                    <div> Choississez un identifiant</div>
+                    {{ form_row(registrationForm.Identifiant) }}
+					
+					{{ form_row(registrationForm.civilite) }}
+					
+					{{ form_row(registrationForm.Nom) }}
+					{{ form_row(registrationForm.Prenom) }}
+					{# {{ form_row(registrationForm.pays) }} 
+					 {{ form_row(registrationForm.adresse) }} 
+					{# {{ form_row(registrationForm.Code_Postal) }}
+					{{ form_row(registrationForm.Ville) }} #}
+					 {{ form_row(registrationForm.telephone) }}
+					{{ form_row(registrationForm.datedeNaissance) }}
+                    {{ form_row(registrationForm.Pays) }}
+                    <div> veuillez noter votre Date d'Inscription sur le site </div>
+                    {{ form_row(registrationForm.datedInscription) }} 
+					{# <label>mettre un identifiant pour assurer le fonctionnement de votre page profil!!</label>
+					{{ form_row(registrationForm.identifiant) }} #}
+					{{ form_row(registrationForm.agreeTerms) }}
+					<button class="btn btn-warning text-black p-3 mb-3">Creer votre Compte</button>
+					{{ form_end(registrationForm) }}
+				</div>
+
+				<div class="jumbotron" style="margin-left:5%">
+					<h2 class="display-0">Aide A la création
+						<br>
+						de votre compte
+					</h2>
+					<br><br>
+					<p class="lead">"Lorem ipsum dolor sit ametsed do eiusmod
+						<br>
+						tempor incididunt utlabore et aliqua.<br>
+						Ut enim ad minim veniam
+						<br>quis nostrud exercitationullamco laboris nisi
+						<br>
+						ex ea commodo consequat.<br>
+						Duis aute irure dolor inreprehenderit
+						<br>cillum dolore eu
+						<br>fugiat nulla pariatur.<br>
+						Excepteur sint occaecat
+						<br>
+						proident, sunt in culpa
+						<br>qui officia deserunt mollit
+						<br>
+						anim id est laborum."
+					</p>
+					<h2 class="display-0">Informations  concernant
+						<br>vos données personnelles
+					</h2>
+					<br><br>
+					<p class="lead">"Lorem ipsum dolor sit amet<br>
+						consectetur  adipiscing elit, sed do eiusmod
+						<br>
+						tempor incididunt ut
+						<br>labore et dolore magna aliqua.<br>
+						Ut enim ad minim veniam
+						<br>quis nostrud exercitation
+						<br>
+						ex ea commodo consequat.<br>
+						Duis aute irure dolor in
+						<br>reprehenderit in voluptate velit esse
+						<br>cillum dolore eu
+						<br>fugiat nulla pariatur.
+
+						<br>
+						proident, sunt in culpa
+						<br>qui officia deserunt mollit<br>
+						proident, sunt in culpaullamco
+						<br>
+						laboris nisi ut aliquip<br>
+						ex ea commodo consequat.<br>
+						Duis aute irure dolor in"
+					</p>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	{% endblock %}

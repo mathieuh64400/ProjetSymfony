@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonce index
+{% endblock %}
+
+{% block body %}
+
+	<div style="overflow-x: hidden;">
+		{% include "template_parts/_nav2.html.twig" %}
+		<div class="example-wrapper mb-2">
+			<h1 class="text-center">
+				Nos adresses</h1><br><br>
+			<div style="text-Align:center; font-Weight:bold;">
+				Verifiez si l'adresse du client est présente ci-dessous
+			</div>
+			
+				
+		<div class="row">
+
+			{% for adresses in adresses %}
+				<div style="margin-bottom:2%; margin-Left:10%;">
+					<div class="card-body">
+						<div class="card border-primary mb-3" style="max-width: 20rem;">
+							<div class="row">
+								<h4 class="card-title ml-3">
+									<div style="text-Align:center;">
+										<br>
+										 
+                                         {{adresses.user.Prenom}}  {{adresses.user.Nom}} 
+									</h4>
+									<div style="margin-left:5%">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+									</div>
+									<div style="margin-bottom:2%;margin-left:25%;">
+										<a href="{{path('annonce_edit',{'id':adresses.id})}}">
+											<button
+												type="button" class="btn btn-warning">
+												{# <img style="height: 100%; width:100%;margin-left:5%; display: block;" src="{{asset('assets/images/eye 7.png')}}"> #}
+												modifier l'adresse
+											</button>
+										</a>
+									</div>
+									<hr>
+								</div>
+								<div>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+								</div>
+								<p class="card-text">
+									Pays:
+									{{adresses.Pays}}</p>
+								<p class="card-text">
+									Type Adresse:
+									{{adresses.typeAdresse}}</p>
+								<p class="card-text">
+									Adresse:
+									{{adresses.Adresse}}</p>
+								<p class="card-text">
+									Ville:
+									{{adresses.ville}}</p>
+								<p class="card-text">
+									Code Postal:
+									{{adresses.codePostal}}</p>
+								<div>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+								</div>
+								<div>
+									<strong>
+										Rappel:</strong>
+									Type_adresse:
+									<br>
+									1=Principale
+									<br>
+									0=secondaire</div>
+							</div>
+							<div class="row">
+								<div style="margin-bottom:2%;">
+									<a href="{{path('annonce_show',{'id':adresses.id})}}">
+										<button type="button" class="btn btn-warning">
+
+											Voir l'adresse.
+										</button>
+									</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				{% endfor %}
+
+			</div>
+		</div>
+	{% endblock %}

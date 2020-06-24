@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+{% block title %}Vos produits
+{% endblock %}
+{% form_theme formPersobis'bootstrap_4_layout.html.twig' %}
+{% block body %}
+
+	{% include "template_parts/_nav2.html.twig" %}
+	<div class="example-wrapper">
+		<h1 class="text-center">Inserez les nouveaux produits</h1>
+		<br>
+		<br>
+		<h1 class="text-center">
+			Organisation de la vitrine de vente</h1>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row" style="margin-left:5%;">
+			<div class="jumbotron" style="width:45%; height:50%;">
+				<br>
+				<div class="form-group">
+					{{form_start(formPersobis)}}
+					<div class="row">
+						{{form_row(formPersobis.type,{'attr':{placeholder:'choissisez le type de produit'}})}}
+						{{form_row(formPersobis.titre,{'attr':{placeholder:'choissisez le nom du produit'}})}}
+					</div>
+
+					<div class="row">
+						{{form_row(formPersobis.Volume,{'attr':{placeholder:'entrez votre volume'}})}}
+						{{form_row(formPersobis.image,{'attr':{placeholder:'entrez votre src'}})}}</div>
+					<div class="row">
+						{{form_row(formPersobis.description,{'attr':{placeholder:'entrez votre description de l article'}})}}
+						{{form_row(formPersobis.Prix,{'attr':{placeholder:'entrez votre prix'}})}}</div>
+					<div class="row">
+						{{form_row(formPersobis.category)}}
+						{{form_row(formPersobis.ecoscore)}}
+					</div>
+					<button type="submit" class="btn btn-warning">Ajouter les éléments</button>
+
+					{{form_end(formPersobis)}}
+				</div>
+			</div>
+			<div>
+				<img class=" container rounded float-left " class="img-fluid ml-1" style="height: 80%; width: 40em; display: block;" src="{{asset ('assets/images/canne.jpg')}}">
+			</div>
+		</div>
+		<div style="margin-left:45%; margin-top:1%; margin-bottom:5%" class="row">
+
+			<div>
+				<a href="{{path ('ecoscore_creation')}}">
+					<button type="button" class="btn btn-warning btn-lg btn-block">
+						ecoscore</button>
+				</a>
+			</div>
+			<div>
+				<a href="{{path ('category_creation')}}">
+					<button type="button" class="btn btn-warning btn-lg btn-block">
+						categorie</button>
+				</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

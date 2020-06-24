@@ -1,0 +1,142 @@
+{% extends 'base.html.twig' %}
+{% block title %}Mon historique de paiement
+
+{% endblock %}
+
+{% block body %}
+	{% include "template_parts/_nav2.html.twig" %}
+	<div style="overflow-x: hidden;">
+		<h1 style="text-align:center">Votre Panier:</h1>
+		<div class="row" style="margin-left:0%;">
+			<div class="container-fluid col-md-6">
+				<div class="card bg-light mb-3 ml-0">
+					<div class="card-header" style="font-weight:bold; text-align:center">liste de vos achats</div>
+					<div style="font-weight:bold; text-align:center">les prix sont les prix Totaux en euros</div>
+
+
+					<table class="table table-hover mt-3 " margin-left="0%">
+						<thead>
+							<tr class="table-light">
+								<th scope="col">
+									Image</th>
+								<th scope="col">Volume</th>
+								<th scope="col">Désignation</th>
+								<th scope="col">Quantité</th>
+								<th scope="col" style="font-weight:Bold;">
+									Prix (euros)</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+							{% for panier in paniers %}
+								{% set total = 0 %}
+							{% set total = total + 1 %}
+								<tr class="table-light">
+									<td scope="row">
+										<img src="{{panier.article.image}}" class="img-responsive" alt="logo" width="85px;">
+									</td>
+									<td>{{panier.article.volume}}</td>
+									<td>{{panier.article.titre}}</td>
+									<td>{{panier.qte}}</td>
+									<td>{{panier.article.prix * panier.qte}}</td>
+								</tr>
+								<tr>
+
+									<td>
+										<a href="{{ path('deletePanier',{'id':panier.id}) }}">
+											<button type="button" class="btn btn-warning ml-0">
+												Supprimer du panier
+											</button>
+										</a>
+									</td>
+									<td></td>
+								</tr>
+
+								{% endfor %}
+							</tbody>
+							{# 
+																																															<tfoot>																						</tfoot> #}
+						</tbody>
+						<tfoot>
+							<tr class="table-light">
+								<th scope="col"></th>
+								<th scope="col"></th>
+								<th scope="col"></th>
+								<th scope="col"></th>
+								<th scope="col">Montant de Vos Achats (TTC)</th>
+
+							</tr>
+							<tr class="table-light">
+								<th scope="col"></th>
+								<th scope="col"></th>
+								<th scope="col"></th>
+								<th scope="col"></th>
+								<th scope="col">
+                                {{total}}
+									{# {% set total = total + panier.article.prix * panier.qte %} #}
+									euros</th>
+
+							</tr>
+						</tfoot>
+					{# {% endfor %} #}
+				</table>
+			</div>
+			<div style="text-align:auto">
+				<a href={{path('paccueil')}}>
+					<button type="button" class="btn btn-warning btn-lg btn-block text-black p-3  ml-2 mb-3">
+						Continuer vos achats
+					</button>
+				</a>
+			</div>
+
+			{# {% else %}
+																			<p>Le panier est vide</p>
+																		{% endif %} #}
+			{#  #}
+
+			<div margin-lef="0%">
+				<div
+					class="container mb-5" margin-left:"0%" style="overflow-x: hidden;">
+					{# <div class="row"> #}
+					<div class="card bg-light">
+						<div class="card-header" style="font-weight:bold; text-align:center">Conditions</div>
+						<div class="card-body mt-0"></div>
+						<div>
+							<h2 style="text-align:center">
+								Delai de Livraison</h2>
+							<div style="text-align:center">
+								Vous disposez de
+								<br>
+								14 jours pour changer d’avis et demander un remboursement
+							</div>
+						</div>
+						<h2 style="text-align:center">
+							Contact par Téléphone</h2>
+						<div style="font-weight:bold; text-align:center">
+							+33 (0)5 59 39 70 23
+						</div>
+						<div style="text-align:center">
+							Nous sommes joignables à ce numero du
+							<br>
+							lundi au samedi de
+							<br>
+							9h à 19h</div>
+						<h2 style="text-align:center">
+							Gratuité de Livraison
+						</h2>
+						<div style="text-align:center">
+							Volume d'Achat Minimal de 100 euros
+						</div>
+						<div style="text-align:center">
+
+							<a href={{path('choix_Commande')}}>
+								<button type="button" class="btn btn-warning p-3 mt-5 mb-5">Valider ma Commande</button>
+							</a>
+						</div>
+					</div>
+					{# </div> #}
+				</div>
+			</div>
+		</div>
+	</div>
+</div></div>{% endblock %}
