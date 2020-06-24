@@ -9,9 +9,9 @@
 		<h1 style="text-align:center">Votre Panier:</h1>
 		<div class="row" style="margin-left:0%;">
 			<div class="container-fluid col-md-6">
-				<div class="card bg-light mb-3 ml-0">
-					<div class="card-header" style="font-weight:bold; text-align:center">liste de vos achats</div>
-					<div style="font-weight:bold; text-align:center">les prix sont les prix Totaux en euros</div>
+				<div class="card bg-light mb-3 ml-0" style="width:100%;">
+					<div class="card-header" style="font-weight:bold; text-align:center; width:100%;">liste de vos achats</div>
+					<div style="font-weight:bold; text-align:center; width:100%;">les prix sont les prix Totaux en euros</div>
 
 
 					<table class="table table-hover mt-3 " margin-left="0%">
@@ -22,8 +22,8 @@
 								<th scope="col">Volume</th>
 								<th scope="col">Désignation</th>
 								<th scope="col">Quantité</th>
-								<th scope="col" style="font-weight:Bold;">
-									Prix (euros)</th>
+								
+								
 							</tr>
 						</thead>
 						<tbody>
@@ -38,7 +38,7 @@
 									<td>{{panier.article.volume}}</td>
 									<td>{{panier.article.titre}}</td>
 									<td>{{panier.qte}}</td>
-									<td>{{panier.article.prix * panier.qte}}</td>
+									
 								</tr>
 								<tr>
 
@@ -49,7 +49,9 @@
 											</button>
 										</a>
 									</td>
+									<td> <strong>Montant:<strong> <br>{{panier.article.prix * panier.qte}}euros</td>
 									<td></td>
+									
 								</tr>
 
 								{% endfor %}
@@ -59,22 +61,19 @@
 						</tbody>
 						<tfoot>
 							<tr class="table-light">
-								<th scope="col"></th>
-								<th scope="col"></th>
-								<th scope="col"></th>
-								<th scope="col"></th>
 								<th scope="col">Montant de Vos Achats (TTC)</th>
+								<th scope="col"></th>
+								<th scope="col"></th>
+								<th scope="col"></th>
+								
 
 							</tr>
 							<tr class="table-light">
+								<th scope="col"> {{total}}euros</th>
 								<th scope="col"></th>
 								<th scope="col"></th>
 								<th scope="col"></th>
-								<th scope="col"></th>
-								<th scope="col">
-                                {{total}}
-									{# {% set total = total + panier.article.prix * panier.qte %} #}
-									euros</th>
+								
 
 							</tr>
 						</tfoot>
