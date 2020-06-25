@@ -43,10 +43,14 @@ class ArticleController extends AbstractController
     }
     /**
      * @Route("/pnew", name="article_creation")
+     * @Route("/pnew/{id}/edit",name="article_edit")
      * @IsGranted("ROLE_ADMIN")
      */
-    public function creationarticle(Request $request){
-        $article= new Article();
+    public function formarticle(Article $article = null, Request $request){
+        // 
+        if(!$article){
+            $article= new Article();
+        }
         $formulairebis=$this->createFormBuilder($article)
                     ->add('type')
                     ->add('titre')
@@ -77,6 +81,7 @@ class ArticleController extends AbstractController
 
         return $this->render('article/creat.html.twig', [
             'formPersobis' => $formulairebis->createView(),
+            'editMode'=>$article->getId() !== null
         ]);
     
     }
@@ -92,6 +97,22 @@ class ArticleController extends AbstractController
             'controller_name' => 'RhumaController',
             'article'=>$article
         ]);
+    }
+     /**
+     * @Route("/deleteArticle/{id}", name="deleteArticle")
+     * @IsGranted("ROLE_ADMIN")
+     */
+
+    public function delete($id, Request $request)
+    {
+        // Supprimer un aticle de la vitrine
+        $manager = $this->getDoctrine()->getManager();
+        $article = $manager->getRepository(Article::class)->find($id);
+        if ($article) {
+            $manager->remove($article);
+            $manager->flush();
+        }
+    return $this->redirectToRoute('paccueil');
     }
 }
 

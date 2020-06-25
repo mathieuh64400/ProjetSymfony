@@ -50,11 +50,20 @@
 								<a href="{{path ('paccueil_show',{'id':article.id})}}">
 									<button type="button" class="btn btn-secondary">detail</button>
 								</a>
-								{# {% if is_granted('ROLE_ADMIN') %}
-									<a class="nav-link" href="{{path('article_modif', {'id': article.id})}}"><button type="button" class="btn btn-secondary">Produit</button></a>
+								{% if is_granted('ROLE_ADMIN') %}
+									<div>
+										<a href="{{path('article_edit',{'id':article.id})}}">
+											<button type="button" class="btn btn-secondary">Produit</button>
+										</a>
+										<a href="{{ path('deleteArticle',{'id':article.id}) }}">
+											<button type="button" class="btn btn-warning ml-0">
+												Supprimer
+											</button>
+										</a>
+									</div>
 									{% elseif is_granted('ROLE_USER') %}
 
-								{% endif %} #}
+								{% endif %}
 							</div>
 						</div>
 					</div>

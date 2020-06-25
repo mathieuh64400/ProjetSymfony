@@ -46,7 +46,10 @@ class PaieCommande
      * @ORM\Column(type="datetime")
      */
     private $date;
-
+   /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $etat;
     /**
      * @ORM\Column(type="string", length=255)
      * 
@@ -58,10 +61,7 @@ class PaieCommande
      */
     private $status;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $etat;
+ 
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="Paiement")

@@ -34,7 +34,14 @@
 						{{form_row(formPersobis.category)}}
 						{{form_row(formPersobis.ecoscore)}}
 					</div>
-					<button type="submit" class="btn btn-warning">Ajouter les éléments</button>
+
+					<button type="submit" class="btn btn-warning">
+					{% if editMode %}
+					Mettre à jour
+					{% else %}	
+					Ajouter 
+					{% endif %}
+					</button>
 
 					{{form_end(formPersobis)}}
 				</div>

@@ -51,7 +51,7 @@ class PanierController extends AbstractController
             $manager->flush();
         }
 
-        $repo = $this->getDoctrine()->getRepository(Panier::class);
+        // $repo = $this->getDoctrine()->getRepository(Panier::class);
         // return $this->json([
         //     // 'message' => 'Un aticle a été supprimé du panier',
         //     'count' => $repo->count(['user' => $this->getUser()])
