@@ -23,15 +23,11 @@
 					Mon Profil</a>
 			</li>
 			{% if is_granted('ROLE_ADMIN') %}
-				<a class="nav-link" href="{{path('listecommande')}}"><img src="{{asset ('assets/images/commande.jpg')}}" class="img-responsive" alt="logo" width="40px;">Liste Commande</a>
+				<a class="nav-link" href="{{path('rhuma')}}"><img src="{{asset ('assets/images/ADMIN.png')}}" class="img-responsive" alt="logo" width="40px;">ADMINISTRATION</a>
 				{% elseif is_granted('ROLE_USER') %}
 
 			{% endif %}
-			{% if is_granted('ROLE_ADMIN') %}
-				<a class="nav-link" href="{{path('article_creation')}}">Produit</a>
-				{% elseif is_granted('ROLE_USER') %}
-
-			{% endif %}
+			
 			{% for locale in locales %}
 				{% if locale != app.request.locale %}
 					<a class="nav-link" href="{{ path('change_locale', {'locale': locale}) }}">

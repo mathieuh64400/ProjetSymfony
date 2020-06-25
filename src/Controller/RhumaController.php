@@ -9,7 +9,7 @@ class RhumaController extends AbstractController
 {
     /**
      * @Route("/rhuma", name="rhuma")
-     * @IsGranted("ROLE_USER")
+     * @IsGranted("ROLE_ADMIN")
      */
     public function index()
     {

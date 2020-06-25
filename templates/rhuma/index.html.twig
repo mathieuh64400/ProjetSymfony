@@ -1,20 +1,68 @@
 {% extends 'base.html.twig' %}
+{% block title %}Page profil de{{ app.user.username }}
 
-{% block title %}Hello RhumaController!{% endblock %}
+
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	{% include "template_parts/_nav2.html.twig" %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/var/www/html/ProjetSymfony/src/Controller/RhumaController.php'|file_link(0) }}">src/Controller/RhumaController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/var/www/html/ProjetSymfony/templates/rhuma/index.html.twig'|file_link(0) }}">templates/rhuma/index.html.twig</a></code></li>
-    </ul>
-</div>
+	<div class="container">
+		<div class="jumbotron">
+			<h1 class="display-4 text-center">Administrer le site</h1>
+			<p class="lead">Selectionner un des chapitre suivant:</p>
+			<hr class="my-4">
+
+			<div class="mb-4">
+				{% if is_granted('ROLE_ADMIN') %}
+					<div class="mb-4">
+						<a href="{{path('utilisateurs')}}">
+							<button type="button" class="btn btn-primary btn-lg btn-block">
+								console d'administratrion des utilisateurs</button>
+						</a>
+					</div>
+					<div class="mb-4">
+						<a href="{{path('adresse_index')}}">
+							<button type="button" class="btn btn-primary btn-lg btn-block">
+								Voir Adresse Client</button>
+						</a>
+					</div>
+					<div class="mb-4">
+						<a class="nav-link" href="{{path('article_creation')}}">
+							<button type="button" class="btn btn-primary btn-lg btn-block">
+								Creation Produit
+							</button>
+						</a>
+					</div>
+					<div class="mb-4">
+						<a class="nav-link" href="{{path('voirlescontact')}}">
+							<button type="button" class="btn btn-primary btn-lg btn-block">
+								Voir Messages
+							</button>
+						</a>
+					</div>
+					<div class=" mb-4">
+						<a class="nav-link" href="{{path('listecommande')}}">
+							<button type="button" class="btn btn-primary btn-lg btn-block">Liste Commande</button>
+						</a>
+					</div>
+                    <div class=" mb-4">
+						<a class="nav-link" href="{{path('evenement_new')}}">
+							<button type="button" class="btn btn-primary btn-lg btn-block">Ajouter Une Actualité</button>
+						</a>
+					</div>
+                    <div class=" mb-4">
+						<a class="nav-link" href="{{path('natureEvent_creation')}}">
+							<button type="button" class="btn btn-primary btn-lg btn-block">Ajouter Un nouveau genre d'Actualité</button>
+						</a>
+					</div>
+                 
+				{% endif %}
+
+			</div>
+
+
+		</div>
+	</div>
 {% endblock %}
