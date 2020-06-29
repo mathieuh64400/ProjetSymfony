@@ -7,23 +7,23 @@
     <body>
       <trans-unit id="cx4BcOz" resname="Qui sommes-nous ?">
         <source>Qui sommes-nous ?</source>
-        <target>__Qui sommes-nous ?</target>
+        <target>Qui sommes-nous ?</target>
       </trans-unit>
       <trans-unit id="lZnMEo8" resname="Les Dernières Nouvelles sur RhumaSug">
         <source>Les Dernières Nouvelles sur RhumaSug</source>
-        <target>__Les Dernières Nouvelles sur RhumaSug</target>
+        <target>Les Dernières Nouvelles sur RhumaSug</target>
       </trans-unit>
       <trans-unit id="MQ.PIyL" resname="Enregistrer vous chez nous">
         <source>Enregistrer vous chez nous</source>
-        <target>__Enregistrer vous chez nous</target>
+        <target>Enregistrer vous chez nous</target>
       </trans-unit>
       <trans-unit id="opuvGKs" resname="Nos Differentes categories de Produits">
         <source>Nos Differentes categories de Produits</source>
-        <target>__Nos Differentes categories de Produits</target>
+        <target>_Nos Differentes categories de Produits</target>
       </trans-unit>
       <trans-unit id="nsxvZ_k" resname="Nos Rhums d'Exceptions &amp; Notre gamme de sucre">
         <source>Nos Rhums d'Exceptions &amp; Notre gamme de sucre</source>
-        <target><![CDATA[__Nos Rhums d'Exceptions & Notre gamme de sucre]]></target>
+        <target><![CDATA[Nos Rhums d'Exceptions & Notre gamme de sucre]]></target>
       </trans-unit>
     </body>
   </file>
