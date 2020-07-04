@@ -17,6 +17,7 @@
 		<div class="row" style="margin-left:5%;">
 			<div class="jumbotron" style="width:45%; height:50%;">
 				<br>
+				<h2 style="margin-left:5%;"> Gerer Vos produits:</h2>
 				<div class="form-group">
 					{{form_start(formPersobis)}}
 					<div class="row">
@@ -36,13 +37,28 @@
 					</div>
 
 					<button type="submit" class="btn btn-warning">
-					{% if editMode %}
-					Mettre à jour
-					{% else %}	
-					Ajouter 
-					{% endif %}
+						{% if editMode %}
+							Mettre à jour
+						{% else %}
+							Ajouter
+						{% endif %}
 					</button>
+					<h2 style="margin-left:5%;"> Gerer les scores et les catégories:</h2>
+					<div style="margin-left:25%; margin-top:1%; margin-bottom:5%" class="row">
 
+						<div>
+							<a href="{{path ('ecoscore_creation')}}">
+								<button type="button" class="btn btn-warning btn-lg btn-block">
+									ecoscore</button>
+							</a>
+						</div>
+						<div>
+							<a href="{{path ('category_creation')}}">
+								<button type="button" class="btn btn-warning btn-lg btn-block">
+									categorie</button>
+							</a>
+						</div>
+					</div>
 					{{form_end(formPersobis)}}
 				</div>
 			</div>
@@ -50,20 +66,6 @@
 				<img class=" container rounded float-left " class="img-fluid ml-1" style="height: 80%; width: 40em; display: block;" src="{{asset ('assets/images/canne.jpg')}}">
 			</div>
 		</div>
-		<div style="margin-left:45%; margin-top:1%; margin-bottom:5%" class="row">
 
-			<div>
-				<a href="{{path ('ecoscore_creation')}}">
-					<button type="button" class="btn btn-warning btn-lg btn-block">
-						ecoscore</button>
-				</a>
-			</div>
-			<div>
-				<a href="{{path ('category_creation')}}">
-					<button type="button" class="btn btn-warning btn-lg btn-block">
-						categorie</button>
-				</a>
-			</div>
-		</div>
 	</div>
 {% endblock %}
