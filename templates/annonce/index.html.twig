@@ -33,45 +33,50 @@
 					<div class="card-body">
 						<div class="card border-primary mb-3" style="max-width: 25rem;">
 							<div class="row">
-								<h4 class="card-title ml-3">
-									<div style="text-Align:center;">Annonce sur
-										<br>
-										{{annonces.titre}}
-										<br>
-										Posté  par :
-										{{annonces.nom}} le <br>{{annonces.date|date('Y-m-d ')}}</h4>
-									<div style="margin-left:5%">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - </div>
-									<div style="margin-bottom:2%;margin-left:25%;">
-										<a href="{{path('annonce_edit',{'id':annonces.id})}}">
-											<button
-												type="button" class="btn btn-warning">
-												{# <img style="height: 100%; width:100%;margin-left:5%; display: block;" src="{{asset('assets/images/eye 7.png')}}"> #}
-												modifier l'annonce
-											</button>
-										</a>
-									</div>
-									<hr>
-								</div>
-                                <div>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - </div>
-								<p class="card-text">{{annonces.contenu}}</p>
-							</div>
-							<div class="row">
-								<div style="margin-bottom:2%;">
-									<a href="{{path('annonce_show',{'id':annonces.id})}}">
-										<button type="button" class="btn btn-warning">
+								<h4 class="card-title"style="text-Align:center;margin-left:25%;">
+									Annonce sur {{annonces.titre}}
 
-											Voir le commentaire
+									</h4>
+								
+								<div style="text-Align:center;margin-left:25%;">Posté  par :
+									{{annonces.nom}}
+									le
+									<br>{{annonces.date|date('Y-m-d ')}}</div>
+								<div style="margin-left:5%">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -
+								</div>
+								<div style="margin-bottom:2%;margin-left:25%;">
+									<a href="{{path('annonce_edit',{'id':annonces.id})}}">
+										<button
+											type="button" class="btn btn-warning">
+											{# <img style="height: 100%; width:100%;margin-left:5%; display: block;" src="{{asset('assets/images/eye 7.png')}}"> #}
+											modifier l'annonce
 										</button>
 									</a>
 								</div>
-
+								<hr>
 							</div>
+							<div>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - -
+							</div>
+							<p>Votre annnonce:</p>
+							<p class="card-text">{{annonces.contenu}}</p>
+						</div>
+						<div class="row">
+							<div style="margin-bottom:2%;">
+								<a href="{{path('annonce_show',{'id':annonces.id})}}">
+									<button type="button" class="btn btn-warning">
+
+										Voir le commentaire
+									</button>
+								</a>
+							</div>
+
 						</div>
 					</div>
+				</div>
 
-				{% endfor %}
+			{% endfor %}
 
-			</div>
 		</div>
-		
-	{% endblock %}
+	</div>
+
+{% endblock %}
