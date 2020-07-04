@@ -27,7 +27,7 @@ class AdresseType extends AbstractType
         ->add('typeAdresse',ChoiceType::class, array(
             'choices'=> array(
                'principale' =>1,
-               ' seconaire ' =>0
+               ' secondaire ' =>0,
             ),
             'expanded' =>true,
             'multiple' => false

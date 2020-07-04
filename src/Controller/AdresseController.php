@@ -44,8 +44,8 @@ class AdresseController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($adresse);
             $entityManager->flush();
-
-            return $this->redirectToRoute('adresse_index');
+               
+            return $this->redirectToRoute('connectionprofil');
         }
 
         return $this->render('adresse/new.html.twig', [

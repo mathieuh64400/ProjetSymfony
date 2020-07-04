@@ -5,67 +5,98 @@
 {% block body %}
 
 	{% include "template_parts/_nav2.html.twig" %}
-	
+
 	<div class="example-wrapper">
 		<h1 class="text-center">Votre paiement</h1>
 		<br>
 		<br>
-	<div style="text-align:center"> Pour effectuer votre paiement, il vous faut vous connecter à votre compte </div>	
-{% if app.user%}
-        <div style="text-align:center"text-Align="center;"> <strong>le total de vos achats est de XXX euros</strong> </div>
-		<div class="container-fluid">
-		<div class="row">
-			<div class="jumbotron" style="margin-left:30%">
-				<br>
-				<div class="form-group container-fluid">
-					{{form_start(formpaiecommande)}}
-					<div>Nous vous faisons confiance pour noter ci-dessous le date du paiement</div>
-					 {{form_row(formpaiecommande.date,{'attr':{placeholder:'entrez votre date de paiement (Aujourd hui)'}})}} 
-					<div>Pour payer vos achats, veuillez remplir ce formulaire de Paiement (civilité: Mr:1,Mme:0)</div>
-					<div class="row">
-					{{form_row(formpaiecommande.civilite,{'attr':{placeholder:'entrez votre nom'}})}}
-					{{form_row(formpaiecommande.Nom,{'attr':{placeholder:'entrez votre nom'}})}}</div>
-					{{form_row(formpaiecommande.mode,{'attr':{placeholder:'choissisez votre mode de paiement'}})}}
-					{{form_row(formpaiecommande.numeroCB,{'attr':{placeholder:'entrez votre numéro de carte bleu'}})}}
-					{{form_row(formpaiecommande.dateExpiration,{'attr':{placeholder:'entrez votre date expiration'}})}}
-					{{form_row(formpaiecommande.cryptogramme,{'attr':{placeholder:'entrez votre cryptogramme à 3 chiffres'}})}}
-					 <div> choissisez l'adresse où nous expédierons votre commande <br> (adresse que vous avez entrée dans la partie adresse de votre profil) </div>
-					{{form_row(formpaiecommande.adresse,{'attr':{placeholder:'entrez votre adresse'}})}} 
-					<div> Ecrivez dans etat: Nul  </div>
-					{{form_row(formpaiecommande.etat)}} 
-					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="customCheck2">
-						<label class="custom-control-label" for="customCheck2">j’accepte ces conditions</label>
-					</div>
-					<div class=" mt-5 container-fluid" style="margin-left:-5%">
-						<div class="g-recaptcha" data-sitekey="6LeJ-94UAAAAANsoi0yIuP42Pq_EM-y-zTjGnnnU"></div>
-					    {# <a href="{{path('bulletin_commande')}}"> #}
-                        <button type="submit" class="btn btn-warning">Valider </button>
-                        </div>
-					{{form_end(formpaiecommande)}}
-				</div>
-				<h2 class="display-6 mt-2">Information: <br> Protection des données</h2>
-				<br><br><br>
-				
-				<p class="lead">"Lorem ipsum<br> dolor sit amet, consectetur <br>adipiscing elit, sed do eiusmod tempor incididunt ut<br> labore et dolore magna aliqua.<br> Ut enim ad minim veniam <br> quis nostrud exercitation <br>ullamco laboris nisi ut <br>aliquip ex ea commodo consequat.<br> Duis aute irure dolor in<br> reprehenderit in voluptate velit esse <br>cillum dolore eu fugiat<br> nulla pariatur.<br> Excepteur sint occaecat cupidatat <br> non proident, sunt in culpa qui <br>officia deserunt mollit <br> anim id est laborum."
-				</p>
-			</div>
-
-
-
+		<div style="text-align:center">
+			Pour effectuer votre paiement, il vous faut vous connecter à votre compte
 		</div>
-	</div>
-{% else %}
-	<div style="text-align:center">
-		
-		<a href="{{path('compte')}}">
-			<button type="button" class="btn btn-warning text-black p-3 mb-3">
-				Devenez Membre!!!
-			</button>
-		</a>
-	</a>
-</div>
-{% endif %}
+		{% if app.user%}
+			<div style="text-align:center" text-align="center;">
+				<strong>le total de vos achats est de XXX euros</strong>
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="jumbotron" style="margin-left:30%">
+						<br>
+						<div class="form-group container-fluid">
+							{{form_start(formpaiecommande)}}
+							<div>Nous vous faisons confiance pour noter ci-dessous le date du paiement</div>
+							{{form_row(formpaiecommande.date,{'attr':{placeholder:'entrez votre date de paiement (Aujourd hui)'}})}}
+							<div>Pour payer vos achats, veuillez remplir ce formulaire de Paiement (civilité: Mr:1,Mme:0)</div>
+							<div class="row">
+								{{form_row(formpaiecommande.civilite,{'attr':{placeholder:'entrez votre nom'}})}}
+								{{form_row(formpaiecommande.Nom,{'attr':{placeholder:'entrez votre nom'}})}}</div>
+							{{form_row(formpaiecommande.mode,{'attr':{placeholder:'choissisez votre mode de paiement'}})}}
+							{{form_row(formpaiecommande.numeroCB,{'attr':{placeholder:'entrez votre numéro de carte bleu'}})}}
+							{{form_row(formpaiecommande.dateExpiration,{'attr':{placeholder:'entrez votre date expiration'}})}}
+							{{form_row(formpaiecommande.cryptogramme,{'attr':{placeholder:'entrez votre cryptogramme à 3 chiffres'}})}}
+							<div>
+								choissisez l'adresse où nous expédierons votre commande
+								<br>
+								(adresse que vous avez entrée dans la partie adresse de votre profil)
+							</div>
+							{{form_row(formpaiecommande.adresse,{'attr':{placeholder:'entrez votre adresse'}})}}
+							<div>
+								Ecrivez dans etat: null
+							</div>
+							{{form_row(formpaiecommande.etat)}}
+							
+							<div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input" id="customCheck2">
+									<label class="custom-control-label" for="customCheck2">j’accepte ces conditions</label>
+								</div>
+								<div class=" mt-5 container-fluid" style="margin-left:-5%">
+									<div class="g-recaptcha" data-sitekey="6LeJ-94UAAAAANsoi0yIuP42Pq_EM-y-zTjGnnnU"></div>
+									{# <a href="{{path('bulletin_commande')}}"> #}
+									<button type="submit" class="btn btn-warning">Valider
+									</button>
+								</div>
+							{{form_end(formpaiecommande)}}
+						</div>
+						<h2 class="display-6 mt-2">Information:
+							<br>
+							Protection des données</h2>
+						<br><br><br>
+
+						<p class="lead">"Lorem ipsum<br>
+							dolor sit amet, consectetur
+							<br>adipiscing elit, sed do eiusmod tempor incididunt ut<br>
+							labore et dolore magna aliqua.<br>
+							Ut enim ad minim veniam
+							<br>
+							quis nostrud exercitation
+							<br>ullamco laboris nisi ut
+							<br>aliquip ex ea commodo consequat.<br>
+							Duis aute irure dolor in<br>
+							reprehenderit in voluptate velit esse
+							<br>cillum dolore eu fugiat<br>
+							nulla pariatur.<br>
+							Excepteur sint occaecat cupidatat
+							<br>
+							non proident, sunt in culpa qui
+							<br>officia deserunt mollit
+							<br>
+							anim id est laborum."
+						</p>
+					</div>
+
+
+				</div>
+			</div>
+		{% else %}
+			<div style="text-align:center">
+
+				<a href="{{path('compte')}}">
+					<button type="button" class="btn btn-warning text-black p-3 mb-3">
+						Devenez Membre!!!
+					</button>
+				</a>
+			</a>
+		</div>
+	{% endif %}
 
 	{% block javascripts %}
 		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
