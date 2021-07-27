@@ -45,7 +45,7 @@ public function editUser(User $user, Request $request)
         $entityManager->flush();
 
         $this->addFlash('message', 'Utilisateur modifié avec succès');
-        return $this->redirectToRoute('admin_utilisateurs');
+        return $this->redirectToRoute('rhuma');
     }
     
     return $this->render('admin/edituser.html.twig', [

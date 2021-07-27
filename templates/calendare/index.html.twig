@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Calendare index{% endblock %}
+
+{% block body %}
+    <h1>Calendare index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Description</th>
+                <th>All_day</th>
+                <th>Background_color</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for calendare in calendares %}
+            <tr>
+                <td>{{ calendare.id }}</td>
+                <td>{{ calendare.title }}</td>
+                <td>{{ calendare.start ? calendare.start|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ calendare.end ? calendare.end|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ calendare.description }}</td>
+                <td>{{ calendare.allDay ? 'Yes' : 'No' }}</td>
+                <td>{{ calendare.backgroundColor }}</td>
+                <td>
+                    <a href="{{ path('calendare_show', {'id': calendare.id}) }}">voir en détail</a>
+                    <a href="{{ path('calendare_edit', {'id': calendare.id}) }}">modifier le message</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucun RDV</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {# <a href="{{ path('calendare_new') }}">créer un nouveau produit</a> #}
+    <a class="nav-link" style="color:black;" href="{{path('calendrier')}}" width="10em;">{#<img src="{{asset ('assets/images/profil.png')}}" class="img-responsive" alt="logo" width="40px;"> #}
+					Voir le calendrier
+				</a>
+{% endblock %}

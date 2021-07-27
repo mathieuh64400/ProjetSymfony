@@ -34,7 +34,6 @@ class ArticleController extends AbstractController
         $articles = $paginator->paginate( $this-> getDoctrine()->getRepository(Article::class)->findAll(),
         $request->query->getInt('page',1),
         3);
-
         
         return $this->render('article/accueil.html.twig', [
             'controller_name' => 'RhumaController',
