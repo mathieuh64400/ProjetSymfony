@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CalendrierController!{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.css"
+        integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.js"
+        integrity="sha256-oenhI3DRqaPoTMAVBBzQUjOKPEdbdFFtTCNIosGwro0=" crossorigin="anonymous"></script>
+
+<h1 style="text-Align:center;"> Voir les rendez-vous</h1>
+<h2 style="text-Align:center; ">Ici sont enregistrés tous les rendez-vous clients ou fournisseurs</h2>
+<p style="margin:5%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<div id="calendrier"style="width:80%; margin:auto;margin-bottom:5%;"></div>
+
+<script>
+let calendarEl = document.getElementById('calendrier');
+let calendar = new FullCalendar.Calendar(calendarEl, {
+
+initialView: 'dayGridWeek',
+
+views: {
+dayGridMonth: { // name of view
+titleFormat: { year: 'numeric', month: '2-digit', day: '2-digit' }
+}
+},
+locale: 'fr',
+timeZone: 'Europe/Paris',
+buttonText: {
+today: 'Aujourd\'hui',
+week: 'Semaine',
+month: 'Mois',
+day: 'jour'
+},
+headerToolbar: {
+start: ',dayGridMonth,dayGridWeek,timeGridDay,',
+center: 'title',
+end: 'prev,today,next'
+},
+validRange: {
+start: '2020-01-01'
+},
+nowIndicator: true,
+events:{{data|raw}},
+editable:true,
+eventResizableFromStart: true
+})
+calendar.on('eventChange',(e)=>{
+   let url=`/api/${e.event.id}/edit`
+   let donnees={
+       "title":e.event.title,
+       "description":e.event.extendedProps.description,
+       "start":e.event.start,
+       "end":e.event.end,
+       "backgroundColor":e.event.backgroundColor,
+       "allDay":e.event.allDay
+   }
+   console.log(donnees);
+   let xhr = new XMLHttpRequest;
+   xhr.open("PUT",url);
+   xhr.send(JSON.stringify(donnees));
+})
+calendar.render();
+
+</script>
+{% endblock %}

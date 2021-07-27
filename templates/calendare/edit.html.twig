@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Calendare{% endblock %}
+
+{% block body %}
+    <h1>Changer le rendez-vous</h1>
+
+    {{ include('calendare/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('calendare_index') }}">Retour a la list</a>
+
+    {{ include('calendare/_delete_form.html.twig') }}
+{% endblock %}

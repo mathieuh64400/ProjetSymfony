@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Calendare
+{% endblock %}
+
+{% block body %}
+	<h1 style="text-align:center;">Prenez rendez-Vous</h1>
+	<div style="margin-left:25%; margin-top:2.5%;">
+		<div style="margin:0%;">Dans Description, veuillez Commencez par préciser le nom puis le prénom et enfin les raisons pour lesquelles vous nous contacter.</div>
+		<div style="margin:0%;">
+			si vous etes un client-acheteur: Pour une plus grande, veuillez preciser le produit à préparer (
+			<strong>
+				N° identification  et la quantité</strong>)!!</div>
+		<div style="margin-bottom:5%" ;>Si vous êtes un partenaire commercial: Veuillez nous préciser la maison que vous représenter!!!</div>
+	</div>
+	
+		<div class="jumbotron container-fluid row"style="margin:auto">
+			<div>
+				{{ include('calendare/_form.html.twig') }}
+			</div>
+			<div style=" margin-left:33%;">
+			<h2  >Informations  concernant
+						<br>vos données personnelles
+					</h2>
+					<br><br>
+					<p class="lead">"Lorem ipsum dolor sit amet<br>
+						consectetur  adipiscing elit, sed do eiusmod
+						<br>
+						
+						<br> labore et dolore magna aliqua.<br>
+						Ut enim ad minim veniam quis nostrud exercitation
+						<br>
+						
+						ex ea commodo consequat velit esse.<br>
+						
+						<br>Duis aute irure dolor in eprehenderit in voluptate 
+						<br>cillum dolore eu fugiat nulla pariatur.
+						
+
+						
+					</p>
+			</div>
+		</div>
+	
+		{# <a href="{{ path('calendare_index') }}">back to list</a> #}
+	{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Calendare{% endblock %}
+
+{% block body %}
+    <h1>Calendare</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ calendare.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ calendare.title }}</td>
+            </tr>
+            <tr>
+                <th>Start</th>
+                <td>{{ calendare.start ? calendare.start|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>End</th>
+                <td>{{ calendare.end ? calendare.end|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ calendare.description }}</td>
+            </tr>
+            <tr>
+                <th>All_day</th>
+                <td>{{ calendare.allDay ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Background_color</th>
+                <td>{{ calendare.backgroundColor }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('calendare_index') }}">retour a la liste de rendez-vous</a>
+
+    <a href="{{ path('calendare_edit', {'id': calendare.id}) }}">Mettre a jour</a>
+
+    {{ include('calendare/_delete_form.html.twig') }}
+{% endblock %}
